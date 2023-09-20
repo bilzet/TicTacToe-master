@@ -1,0 +1,20 @@
+language: android
+dist: trusty
+android:
+  components:
+    - build-tools-29.0.2
+    - android-29
+
+before_install:
+  - chmod +x gradlew
+  - yes | sdkmanager "platforms;android-29"
+
+script:
+  - ./gradlew build assembleDebug
+
+notifications:
+  email:
+    recipients:
+      -tema9991@mail.ru
+    on_success: never # default: change
+    on_failure: always # default: always
